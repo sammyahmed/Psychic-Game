@@ -26,17 +26,15 @@
     var wins = 0;
     var losses = 0;
     var guesses = 10;
-
+    
 
       var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
       var userText = document.getElementById("user-text");
 
-      //User chooses any letter to match the computer's choice.
+      //User chooses r, p, or s on keyboard representing rock, paper, or scissors.
       document.onkeyup = function(event) {
         userText.textContent = event.key;
-
-      var guessList = document.getElementById(this)
 
       var userGuess = event.key;
 
@@ -47,36 +45,27 @@
       console.log(computerGuess);
 
 
-      if (userGuess===computerGuess){
+      if (computerGuess===userGuess){
         wins++;
         console.log("win");
-      } 
+      }
       else if ((userGuess!==computerGuess)) {
         guesses--
 
         ;
       }
-
-      else if (guesses=0) {
-        losses++;
-      }
-
-
+      
+    
         var html = "<div><p>Guess what letter I'm thinking of</p>" +
           "<p>Wins: " + wins + "</p>" +
           "<p>Losses: " + losses + "</p>" +
-          "<p>Guesses Left: " + guesses + "</p>"
-          "<p>Your Guesses so far: " + guessList + "</p></div>";
+          "<p>Guesses left: " + guesses + "</p></div>";
+          
 
        
           document.querySelector("#go-here").innerHTML = html;
-        
 
-
-      };
-
-
-
+        };
 
     </script>
   </body>
