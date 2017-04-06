@@ -32,7 +32,7 @@
 
       var userText = document.getElementById("user-text");
 
-      //User chooses r, p, or s on keyboard representing rock, paper, or scissors.
+      //User chooses a letter to try and match the computer's choice.
       document.onkeyup = function(event) {
         userText.textContent = event.key;
 
@@ -47,14 +47,15 @@
 
       if (computerGuess===userGuess){
         wins++;
+        reset(guesses=10)
         console.log("win");
       }
       else if ((userGuess!==computerGuess)) {
-        guesses--
-
-        ;
+        guesses--;
       }
-      
+      else if ((guesses==0)) {
+        losses++;
+      }
     
         var html = "<div><p>Guess what letter I'm thinking of</p>" +
           "<p>Wins: " + wins + "</p>" +
