@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Events!</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+  </head>
+  <body>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <div class="jumbotron" id="go-here">
+ <h2>Guess What Letter I'm Thinking of.<span id="user-text"></h2><br>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+ 
+    <script type="text/javascript">
+     
+    var wins = 0;
+    var losses = 0;
+    var guesses = 10;
+
+
+      var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+      var userText = document.getElementById("user-text");
+
+      //User chooses any letter to match the computer's choice.
+      document.onkeyup = function(event) {
+        userText.textContent = event.key;
+
+      var guessList = document.getElementById(this)
+
+      var userGuess = event.key;
+
+      var computerGuess = options[Math.floor(Math.random() *
+        options.length)];
+
+      console.log(userGuess);
+      console.log(computerGuess);
+
+
+      if (userGuess===computerGuess){
+        wins++;
+        console.log("win");
+      } 
+      else if ((userGuess!==computerGuess)) {
+        guesses--
+
+        ;
+      }
+
+      else if (guesses=0) {
+        losses++;
+      }
+
+
+        var html = "<div><p>Guess what letter I'm thinking of</p>" +
+          "<p>Wins: " + wins + "</p>" +
+          "<p>Losses: " + losses + "</p>" +
+          "<p>Guesses Left: " + guesses + "</p>"
+          "<p>Your Guesses so far: " + guessList + "</p></div>";
+
+       
+          document.querySelector("#go-here").innerHTML = html;
+        
+
+
+      };
+
+
+
+
+    </script>
+  </body>
+</html>
